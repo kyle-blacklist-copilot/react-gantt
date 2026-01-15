@@ -5,7 +5,7 @@ import { Gantt, ContextMenu, Editor } from '../../src';
 export default function GanttBatchProvider() {
   const restProvider = useMemo(
     () =>
-      new RestDataProvider('https://gantt-backend.svar.dev', {
+      new RestDataProvider('https://master--svar-gantt-go--dev.webix.io', {
         batchURL: 'batch',
       }),
     [],

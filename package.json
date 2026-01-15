@@ -1,6 +1,6 @@
 {
   "name": "@svar-ui/react-gantt",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "description": "A customizable, high-performance React Gantt chart component for building project timelines.",
   "productTag": "gantt",
   "productTrial": true,
@@ -65,11 +65,11 @@
     "@svar-ui/lib-dom": "0.11.1",
     "@svar-ui/lib-state": "1.9.6",
     "@svar-ui/lib-react": "1.2.2",
-    "@svar-ui/react-core": "2.4.0",
-    "@svar-ui/react-menu": "2.4.0",
-    "@svar-ui/react-grid": "2.4.0",
-    "@svar-ui/react-toolbar": "2.4.0",
-    "@svar-ui/react-editor": "2.4.0"
+    "@svar-ui/react-core": "2.4.1",
+    "@svar-ui/react-menu": "2.4.1",
+    "@svar-ui/react-grid": "2.4.1",
+    "@svar-ui/react-toolbar": "2.4.1",
+    "@svar-ui/react-editor": "2.4.1"
   },
   "homepage": "https://svar.dev/react/gantt/",
   "repository": {

@@ -1,3 +1,9 @@
+## Version 2.4.5
+
+### Fixes
+
+- Incorrect path to fonts and icons
+
 ## Version 2.4.4
 
 ### Fixes
