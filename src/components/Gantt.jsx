@@ -167,6 +167,12 @@ const Gantt = forwardRef(function Gantt(
   const tableAPIRef = useRef(null);
   tableAPIRef.current = tableAPI;
 
+  // chart scroll handler registration for scrollToDate
+  const chartScrollFnRef = useRef(null);
+  const registerChartScroll = (fn) => {
+    chartScrollFnRef.current = fn;
+  };
+
   // public API
   const api = useMemo(
     () => ({
@@ -188,6 +194,23 @@ const Gantt = forwardRef(function Gantt(
           ? new Promise((res) => setTimeout(() => res(tableAPIRef.current), 1))
           : tableAPIRef.current,
       getHistory: () => dataStore.getHistory(),
+      scrollToDate: (date, config) => {
+        const state = dataStore.getState();
+        const { _scales, cellWidth: cw } = state;
+        if (!_scales) return;
+
+        if (date < _scales.start || date > _scales.end) {
+          console.warn(
+            'scrollToDate: date is outside the Gantt date range',
+          );
+          return;
+        }
+
+        const align = (config && config.align) || 'center';
+        if (chartScrollFnRef.current) {
+          chartScrollFnRef.current(date, _scales, cw, align);
+        }
+      },
     }),
     [dataStore, firstInRoute],
   );
@@ -323,6 +346,7 @@ const Gantt = forwardRef(function Gantt(
           cellBorders={cellBorders}
           highlightTime={highlightTime}
           onTableAPIChange={setTableAPI}
+          onChartScrollRegister={registerChartScroll}
         />
       </StoreContext.Provider>
     </context.i18n.Provider>

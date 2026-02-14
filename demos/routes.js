@@ -14,7 +14,6 @@ import GanttSizes from './cases/GanttSizes.jsx';
 import GanttMultiple from './cases/GanttMultiple.jsx';
 import GanttPerformance from './cases/GanttPerformance.jsx';
 
-
 import GanttTooltips from './cases/GanttTooltips.jsx';
 import GanttToolbar from './cases/GanttToolbar.jsx';
 import GanttToolbarCustom from './cases/GanttToolbarCustom.jsx';
@@ -24,6 +23,7 @@ import GanttLocale from './cases/GanttLocale.jsx';
 import GanttStartEnd from './cases/GanttStartEnd.jsx';
 import GanttFullscreen from './cases/GanttFullscreen.jsx';
 import GanttZoom from './cases/GanttZoom.jsx';
+import GanttScrollToDate from './cases/GanttScrollToDate.jsx';
 import GanttCustomZoom from './cases/GanttCustomZoom.jsx';
 import GanttLengthUnit from './cases/GanttLengthUnit.jsx';
 import GanttTaskTypes from './cases/GanttTaskTypes.jsx';
@@ -35,8 +35,6 @@ import ContextMenuOptions from './cases/ContextMenuOptions.jsx';
 import GanttHolidays from './cases/GanttHolidays.jsx';
 import GanttSort from './cases/GanttSort.jsx';
 import GanttCustomSort from './cases/GanttCustomSort.jsx';
-import SummariesProgress from './cases/ProSummariesProgress.jsx';
-import SummariesConvert from './cases/ProSummariesConvert.jsx';
 import GanttEditor from './cases/GanttEditor.jsx';
 import GanttEditorConfig from './cases/GanttEditorConfig.jsx';
 import GanttEditorCustomControls from './cases/GanttEditorCustomControls.jsx';
@@ -78,13 +76,18 @@ export const links = [
 
   ['/holidays/:skin', 'Holidays', GanttHolidays, 'GanttHolidays'],
 
-
   ['/templates/:skin', 'Custom text', GanttText, 'GanttText'],
   ['/tooltips/:skin', 'Tooltips', GanttTooltips, 'GanttTooltips'],
 
   ['/task-types/:skin', 'Task types', GanttTaskTypes, 'GanttTaskTypes'],
 
   ['/zoom/:skin', 'Zoom', GanttZoom, 'GanttZoom'],
+  [
+    '/scroll-to-date/:skin',
+    'Scroll to Date',
+    GanttScrollToDate,
+    'GanttScrollToDate',
+  ],
   ['/custom-zoom/:skin', 'Custom Zoom', GanttCustomZoom, 'GanttCustomZoom'],
   [
     '/length-unit/:skin',

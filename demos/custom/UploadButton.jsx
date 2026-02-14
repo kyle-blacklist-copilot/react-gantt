@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './UbloadButton.css';
 
 function UploadButton({ text, onChange }) {

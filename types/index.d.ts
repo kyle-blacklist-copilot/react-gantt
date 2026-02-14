@@ -18,6 +18,10 @@ import type {
 export * from '@svar-ui/gantt-store';
 export { registerEditorItem } from '@svar-ui/react-editor';
 
+export interface IGanttApi extends IApi {
+  scrollToDate(date: Date, config?: { align?: 'center' | 'left' }): void;
+}
+
 export interface IColumnConfig extends Omit<IGanttColumn, 'header'> {
   cell?: ITableColumn['cell'];
   header?: ITableColumn['header'];
@@ -29,13 +33,13 @@ export declare const Gantt: FC<
     columns?: false | IColumnConfig[];
     taskTemplate?: FC<{
       data: ITask;
-      api: IApi;
+      api: IGanttApi;
       onaction: (ev: { action: string; data: { [key: string]: any } }) => void;
     }>;
     readonly?: boolean;
     cellBorders?: 'column' | 'full';
     highlightTime?: (date: Date, unit: 'day' | 'hour') => string;
-    init?: (api: IApi) => void;
+    init?: (api: IGanttApi) => void;
   } & IConfig &
     GanttActions<TMethodsConfig>
 >;

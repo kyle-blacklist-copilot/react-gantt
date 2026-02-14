@@ -23,6 +23,7 @@ function Chart(props) {
     taskTemplate,
     cellBorders,
     highlightTime,
+    onChartScrollRegister,
   } = props;
 
   const api = useContext(storeContext);
@@ -122,6 +123,24 @@ function Chart(props) {
   useEffect(() => {
     showTask(rScrollTask);
   }, [rScrollTask]);
+
+  // Register scroll-to-date handler
+  useEffect(() => {
+    if (!onChartScrollRegister) return;
+    onChartScrollRegister((date, _scales, cw, align) => {
+      const el = chartRef.current;
+      if (!el) return;
+      let x = Math.round(
+        _scales.diff(date, _scales.start, _scales.lengthUnit) * cw,
+      );
+      if (align === 'center') {
+        x = Math.max(0, x - el.clientWidth / 2);
+      }
+      el.scrollLeft = x;
+      api.exec('scroll-chart', { left: x });
+    });
+    return () => onChartScrollRegister(null);
+  }, [api, onChartScrollRegister]);
 
   function onWheel(e) {
     if (zoom && (e.ctrlKey || e.metaKey)) {

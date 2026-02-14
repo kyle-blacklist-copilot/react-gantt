@@ -23,6 +23,7 @@ function Layout(props) {
     cellBorders,
     highlightTime,
     onTableAPIChange,
+    onChartScrollRegister,
   } = props;
 
   const api = useContext(storeContext);
@@ -291,6 +292,7 @@ function Layout(props) {
                 taskTemplate={taskTemplate}
                 cellBorders={cellBorders}
                 highlightTime={highlightTime}
+                onChartScrollRegister={onChartScrollRegister}
               />
             </div>
           </div>
