@@ -1,5 +1,5 @@
 {
-  "name": "@svar-ui/react-gantt",
+  "name": "@blacklist-advisory/react-gantt",
   "version": "2.5.2",
   "description": "A customizable, high-performance React Gantt chart component for building project timelines.",
   "productTag": "gantt",
@@ -97,7 +97,7 @@
     "vite": "7.1.5"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "lint-staged": {
     "*.{ts,js,svelte}": [
